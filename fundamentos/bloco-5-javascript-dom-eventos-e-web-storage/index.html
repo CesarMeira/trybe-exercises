@@ -70,6 +70,34 @@
       newDivCenter.classList.add = 'center-content';
       newMainDiv.appendChild(newDivCenter);
 
+      let newP = document.createElement('p');
+      newDivCenter.appendChild(newP);
+      newP.innerHTML = 'Oi sou um texto';
+
+      let newLeftDiv = document.createElement('div');
+      newMainDiv.appendChild(newLeftDiv);
+      newLeftDiv.classList.add = 'left-content';
+
+      let newRightDiv = document.createElement('div');
+      newRightDiv.classList.add = 'right-content';
+      newMainDiv.appendChild(newRightDiv);
+
+      let newImg = document.createElement('img');
+      newImg.src = 'https://picsum.photos/200';
+      newImg.classList.add = 'small-image';
+      newLeftDiv.appendChild(newImg);
+
+      let numbers = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+
+      let newUl = document.createElement('ul');
+ 
+      for(let index = 0; index < numbers.length; index += 1) {
+        let newLi = document.createElement('li');
+        newLi.inenrHTML = numbers[index];
+        newUL.appendChild(newLi);
+      }
+      newRightDiv.appendChild(newUl);
+
     </script>
   </body>
 </html>
