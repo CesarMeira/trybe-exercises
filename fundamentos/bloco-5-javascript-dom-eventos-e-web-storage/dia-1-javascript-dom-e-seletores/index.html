@@ -65,7 +65,34 @@
       square.style.background = "rgb(76,164,109)";
     }
     greenSquare();
-    
+
+    function whiteCenterSquare() {
+      let centerSquare = document.getElementsByClassName('center-content')[0];
+      centerSquare.style.background = "white";
+    }
+    whiteCenterSquare();
+
+    function fixTitle() {
+      let title = document.getElementsByTagName('h1')[0];
+      title.innerHTML = "Exercício 5.1 - JavaScript";
+    }
+    fixTitle();
+
+    function pToUpperCase() {
+      let paragraph = document.getElementsByTagName('p')[0];
+      paragraph.innerHTML = paragraph.innerHTML.toUpperCase();
+    }
+    pToUpperCase();
+
+    function showParagraphs()
+    {
+        let paragraphs = document.getElementsByTagName('p');
+        
+        for(let p in paragraphs){
+            console.log(paragraphs[p].innerHTML);
+        }
+    }
+    showParagraphs()
     </script>
   </body>
 </html>
