@@ -117,4 +117,23 @@ function createMouseOutEffect() {
 
 createMouseOverEffect();
 createMouseOutEffect();
-    
+
+const myTasks = document.querySelector('.my-tasks');
+
+function addTaskToCalendar(task) {
+    const newSpan = document.createElement('span');
+    newSpan.innerHTML = task;
+    const myTasks = document.querySelector('.my-tasks');
+    myTasks.appendChild(newSpan);
+}
+
+addTaskToCalendar('Malhar');
+
+function addColorToTask(color) {
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('task');
+    newDiv.style.backgroundColor = color;
+    myTasks.appendChild(newDiv);
+}
+
+addColorToTask('red');
