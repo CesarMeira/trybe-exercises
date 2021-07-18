@@ -82,10 +82,10 @@ function addClickToFridayBtn() {
 
 function toggleModifyTextOnFridays() {
     const fridays = document.getElementsByClassName('friday');
-    for(let index = 0; index < fridays.length; index += 1) {
-        if(fridays[index].innerHTML !== "SEXTOU!!") {
+    for (let index = 0; index < fridays.length; index += 1) {
+        if (fridays[index].innerHTML !== "SEXTOU!!") {
             fridays[index].innerHTML = "SEXTOU!!";
-        }else {
+        } else {
             fridays[index].innerHTML = arrayOfFridayDays[index];
         }
     }
@@ -93,12 +93,10 @@ function toggleModifyTextOnFridays() {
 
 addClickToFridayBtn();
 
-const dayList = document.getElementsByClassName('day');
-
 function createMouseOverEffect() {
     const dayList = document.getElementsByClassName('day');
-    for(let index = 0; index < dayList.length; index += 1) {
-        dayList[index].addEventListener('mouseover', function(event) {
+    for (let index = 0; index < dayList.length; index += 1) {
+        dayList[index].addEventListener('mouseover', function (event) {
             event.target.style.fontSize = '35px';
             event.target.style.fontWeight = '750';
         });
@@ -107,8 +105,8 @@ function createMouseOverEffect() {
 
 function createMouseOutEffect() {
     const dayList = document.getElementsByClassName('day');
-    for(let index = 0; index < dayList.length; index += 1) {
-        dayList[index].addEventListener('mouseout', function(event) {
+    for (let index = 0; index < dayList.length; index += 1) {
+        dayList[index].addEventListener('mouseout', function (event) {
             event.target.style.fontWeight = '200';
             event.target.style.fontSize = '20px';
         });
@@ -140,15 +138,33 @@ addCheckTaskElement('red');
 
 function addTaskSelectedEvent() {
     const allTaskmarkers = document.getElementsByClassName('task');
-    for(let index = 0; index < allTaskmarkers.length; index += 1) {
-        allTaskmarkers[index].addEventListener('click', function(event) {
-            if(event.target.classList.contains('selected')) {
+    for (let index = 0; index < allTaskmarkers.length; index += 1) {
+        allTaskmarkers[index].addEventListener('click', function (event) {
+            if (event.target.classList.contains('selected')) {
                 event.target.classList.remove('selected');
-            }else {
-               event.target.classList.add('selected');
+            } else {
+                event.target.classList.add('selected');
             }
         });
     }
 }
 
 addTaskSelectedEvent();
+
+function paintDayWithTaskColor() {
+    const dayList = document.getElementsByClassName('day');
+    for (let index = 0; index < dayList.length; index += 1) {
+        dayList[index].addEventListener('click', function (event) {
+            const selected = document.querySelector('.selected');
+            if (event.target.style.color === selected.style.backgroundColor) {
+                console.log('é ecoal');
+                event.target.style.color = 'rgb(119,119,119)';
+            } else {
+                console.log('non é ecoal');
+                event.target.style.color = selected.style.backgroundColor;
+            }
+        });
+    }
+}
+
+paintDayWithTaskColor();
