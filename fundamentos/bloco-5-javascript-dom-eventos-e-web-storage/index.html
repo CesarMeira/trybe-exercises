@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      div {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let newH1 = document.createElement('h1');
+      newH1.innerHTML = 'Exercícios 5.2';
+
+      document.body.appendChild(newH1);
+
+      let newMainDiv = document.createElement('div');
+      newMainDiv.classList.add = 'main-content';
+      document.body.appendChild(newMainDiv);
+
+      let newDivCenter = document.createElement('div');
+      newDivCenter.classList.add = 'center-content';
+      newMainDiv.appendChild(newDivCenter);
+
+      let newP = document.createElement('p');
+      newDivCenter.appendChild(newP);
+      newP.innerHTML = 'Oi sou um texto';
+
+      let newLeftDiv = document.createElement('div');
+      newMainDiv.appendChild(newLeftDiv);
+      newLeftDiv.classList.add = 'left-content';
+
+      let newRightDiv = document.createElement('div');
+      newRightDiv.classList.add = 'right-content';
+      newMainDiv.appendChild(newRightDiv);
+
+      let newImg = document.createElement('img');
+      newImg.src = 'https://picsum.photos/200';
+      newImg.classList.add = 'small-image';
+      newLeftDiv.appendChild(newImg);
+
+      let numbers = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
+
+      let newUl = document.createElement('ul');
+ 
+      for(let index = 0; index < numbers.length; index += 1) {
+        let newLi = document.createElement('li');
+        newLi.inenrHTML = numbers[index];
+        newUL.appendChild(newLi);
+      }
+      newRightDiv.appendChild(newUl);
+
+    </script>
+  </body>
+</html>
