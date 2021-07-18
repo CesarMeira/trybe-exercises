@@ -40,7 +40,26 @@ function createHolidayButton(param) {
     const holidayDiv = document.querySelector('.buttons-container');
     const holidayButton = document.createElement('button');
     holidayButton.innerHTML = param;
+    holidayButton.classList.add('holiday-button');
     holidayDiv.appendChild(holidayButton);
 }
 
 createHolidayButton('Feriados');
+
+function addClickEventToHolidaysButton() {
+    const holiButton = document.querySelector('.holiday-button');
+    holiButton.addEventListener('click', toggleHighlightHolidays);
+}
+
+addClickEventToHolidaysButton();
+
+function toggleHighlightHolidays() {
+    const holidays = document.getElementsByClassName('holiday');
+    for(index = 0; index < holidays.length; index += 1) {
+        if(holidays[index].classList.contains('holiday-highlight')) {
+            holidays[index].classList.remove('holiday-highlight');    
+        }else {
+            holidays[index].classList.add('holiday-highlight');
+        }
+    }
+}
