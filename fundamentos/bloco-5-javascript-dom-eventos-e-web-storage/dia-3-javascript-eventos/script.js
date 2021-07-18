@@ -1,3 +1,5 @@
+let arrayOfFridayDays = [4, 11, 18, 25];
+
 function createDaysOfTheWeek() {
     const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
     const weekDaysList = document.querySelector('.week-days');
@@ -10,7 +12,6 @@ function createDaysOfTheWeek() {
         weekDaysList.appendChild(dayListItem);
     };
 };
-
 createDaysOfTheWeek();
 
 // Escreva seu código abaixo.
@@ -46,12 +47,12 @@ function createHolidayButton(param) {
 
 createHolidayButton('Feriados');
 
-function addClickEventToHolidaysButton() {
+function addClickToHolidaysBtn() {
     const holiButton = document.querySelector('.btn-holiday');
     holiButton.addEventListener('click', toggleHighlightHolidays);
 }
 
-addClickEventToHolidaysButton();
+addClickToHolidaysBtn();
 
 function toggleHighlightHolidays() {
     const holidays = document.getElementsByClassName('holiday');
@@ -64,12 +65,30 @@ function toggleHighlightHolidays() {
     }
 }
 
-function createFridayButton(param) {
+function createFridayBtn(param) {
     const buttonsContainer = document.querySelector('.buttons-container');
-    const fridayButton = document.createElement('button');
-    fridayButton.innerHTML = param;
-    fridayButton.classList.add('btn-friday');
-    buttonsContainer.appendChild(fridayButton);
+    const fridayBtn = document.createElement('button');
+    fridayBtn.innerHTML = param;
+    fridayBtn.classList.add('btn-friday');
+    buttonsContainer.appendChild(fridayBtn);
 }
 
-createFridayButton('Sexta-Feira');
+createFridayBtn('Sexta-Feira');
+
+function addClickToFridayBtn() {
+    const fridayBtn = document.querySelector('.btn-friday');
+    fridayBtn.addEventListener('click', toggleModifyTextOnFridays);
+}
+
+function toggleModifyTextOnFridays() {
+    const fridays = document.getElementsByClassName('friday');
+    for(index = 0; index < fridays.length; index += 1) {
+        if(fridays[index].innerHTML !== "SEXTOU!!") {
+            fridays[index].innerHTML = "SEXTOU!!";
+        }else {
+            fridays[index].innerHTML = arrayOfFridayDays[index];
+        }
+    }
+}
+
+addClickToFridayBtn();
