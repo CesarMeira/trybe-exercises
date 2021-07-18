@@ -48,8 +48,8 @@ function createHolidayButton(param) {
 createHolidayButton('Feriados');
 
 function addClickToHolidaysBtn() {
-    const holiButton = document.querySelector('.btn-holiday');
-    holiButton.addEventListener('click', toggleHighlightHolidays);
+    const holiBtn = document.querySelector('.btn-holiday');
+    holiBtn.addEventListener('click', toggleHighlightHolidays);
 }
 
 addClickToHolidaysBtn();
@@ -92,3 +92,29 @@ function toggleModifyTextOnFridays() {
 }
 
 addClickToFridayBtn();
+
+const dayList = document.getElementsByClassName('day');
+
+function createMouseOverEffect() {
+    const dayList = document.getElementsByClassName('day');
+    for(index = 0; index < dayList.length; index += 1) {
+        dayList[index].addEventListener('mouseover', function(event) {
+            event.target.style.fontSize = '35px';
+            event.target.style.fontWeight = '750';
+        });
+    }
+}
+
+function createMouseOutEffect() {
+    const dayList = document.getElementsByClassName('day');
+    for(index = 0; index < dayList.length; index += 1) {
+        dayList[index].addEventListener('mouseout', function(event) {
+            event.target.style.fontWeight = '200';
+            event.target.style.fontSize = '20px';
+        });
+    }
+}
+
+createMouseOverEffect();
+createMouseOutEffect();
+    
