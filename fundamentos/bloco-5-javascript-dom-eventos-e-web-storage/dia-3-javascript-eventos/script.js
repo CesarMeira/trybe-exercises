@@ -56,7 +56,7 @@ addClickToHolidaysBtn();
 
 function toggleHighlightHolidays() {
     const holidays = document.getElementsByClassName('holiday');
-    for (index = 0; index < holidays.length; index += 1) {
+    for (let index = 0; index < holidays.length; index += 1) {
         if (holidays[index].classList.contains('holiday-highlight')) {
             holidays[index].classList.remove('holiday-highlight');
         } else {
@@ -82,7 +82,7 @@ function addClickToFridayBtn() {
 
 function toggleModifyTextOnFridays() {
     const fridays = document.getElementsByClassName('friday');
-    for(index = 0; index < fridays.length; index += 1) {
+    for(let index = 0; index < fridays.length; index += 1) {
         if(fridays[index].innerHTML !== "SEXTOU!!") {
             fridays[index].innerHTML = "SEXTOU!!";
         }else {
@@ -97,7 +97,7 @@ const dayList = document.getElementsByClassName('day');
 
 function createMouseOverEffect() {
     const dayList = document.getElementsByClassName('day');
-    for(index = 0; index < dayList.length; index += 1) {
+    for(let index = 0; index < dayList.length; index += 1) {
         dayList[index].addEventListener('mouseover', function(event) {
             event.target.style.fontSize = '35px';
             event.target.style.fontWeight = '750';
@@ -107,7 +107,7 @@ function createMouseOverEffect() {
 
 function createMouseOutEffect() {
     const dayList = document.getElementsByClassName('day');
-    for(index = 0; index < dayList.length; index += 1) {
+    for(let index = 0; index < dayList.length; index += 1) {
         dayList[index].addEventListener('mouseout', function(event) {
             event.target.style.fontWeight = '200';
             event.target.style.fontSize = '20px';
@@ -129,11 +129,26 @@ function addTaskToCalendar(task) {
 
 addTaskToCalendar('Malhar');
 
-function addColorToTask(color) {
+function addCheckTaskElement(color) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('task');
     newDiv.style.backgroundColor = color;
     myTasks.appendChild(newDiv);
 }
 
-addColorToTask('red');
+addCheckTaskElement('red');
+
+function addTaskSelectedEvent() {
+    const allTaskmarkers = document.getElementsByClassName('task');
+    for(let index = 0; index < allTaskmarkers.length; index += 1) {
+        allTaskmarkers[index].addEventListener('click', function(event) {
+            if(event.target.classList.contains('selected')) {
+                event.target.classList.remove('selected');
+            }else {
+               event.target.classList.add('selected');
+            }
+        });
+    }
+}
+
+addTaskSelectedEvent();
