@@ -37,17 +37,17 @@ function addDays() {
 addDays();
 
 function createHolidayButton(param) {
-    const holidayDiv = document.querySelector('.buttons-container');
+    const buttonsContainer = document.querySelector('.buttons-container');
     const holidayButton = document.createElement('button');
     holidayButton.innerHTML = param;
-    holidayButton.classList.add('holiday-button');
-    holidayDiv.appendChild(holidayButton);
+    holidayButton.classList.add('btn-holiday');
+    buttonsContainer.appendChild(holidayButton);
 }
 
 createHolidayButton('Feriados');
 
 function addClickEventToHolidaysButton() {
-    const holiButton = document.querySelector('.holiday-button');
+    const holiButton = document.querySelector('.btn-holiday');
     holiButton.addEventListener('click', toggleHighlightHolidays);
 }
 
@@ -55,11 +55,21 @@ addClickEventToHolidaysButton();
 
 function toggleHighlightHolidays() {
     const holidays = document.getElementsByClassName('holiday');
-    for(index = 0; index < holidays.length; index += 1) {
-        if(holidays[index].classList.contains('holiday-highlight')) {
-            holidays[index].classList.remove('holiday-highlight');    
-        }else {
+    for (index = 0; index < holidays.length; index += 1) {
+        if (holidays[index].classList.contains('holiday-highlight')) {
+            holidays[index].classList.remove('holiday-highlight');
+        } else {
             holidays[index].classList.add('holiday-highlight');
         }
     }
 }
+
+function createFridayButton(param) {
+    const buttonsContainer = document.querySelector('.buttons-container');
+    const fridayButton = document.createElement('button');
+    fridayButton.innerHTML = param;
+    fridayButton.classList.add('btn-friday');
+    buttonsContainer.appendChild(fridayButton);
+}
+
+createFridayButton('Sexta-Feira');
